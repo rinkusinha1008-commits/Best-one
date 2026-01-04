@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Minecraft Homepage</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Full-screen background video */
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Menu container */
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  z-index: 1;
+}
+
+/* Minecraft-style button */
+.btn {
+  padding: 20px 120px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: #5a5a5a;
+  border: 4px solid #8a8a8a;
+  box-shadow: inset 0 -6px 0 #3a3a3a;
+  transition: all 0.1s;
+}
+
+/* Hover */
+.btn:hover {
+  background: #6b6b6b;
+}
+
+/* Active Minecraft-green style */
+.btn.active {
+  background: #3bb54a;
+  border-color: #2e8b3a;
+  box-shadow: inset 0 -6px 0 #1f6b2a;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  z-index: 1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background video -->
+<video id="bg-video" autoplay muted loop playsinline>
+  <source src="Background.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Buttons -->
+<div class="menu">
+  <button id="playBtn" class="btn" onclick="playGame()">PLAY</button>
+  <button id="settingsBtn" class="btn" onclick="openSettings()">SETTINGS</button>
+  <button id="marketBtn" class="btn" onclick="openMarketplace()">MARKETPLACE</button>
+</div>
+
+<footer>CLICK PLAY TO ENABLE MUSIC</footer>
+
+<script>
+const video = document.getElementById("bg-video");
+
+// PLAY: unmute + green  
+function playGame() {
+  video.muted = false;
+  video.volume = 1;
+  document.getElementById("playBtn").classList.add("active");
+}
+
+// SETTINGS: green + placeholder
+function openSettings() {
+  document.getElementById("settingsBtn").classList.add("active");
+  alert("Settings coming soon!");
+}
+
+// MARKETPLACE: green + placeholder
+function openMarketplace() {
+  document.getElementById("marketBtn").classList.add("active");
+  alert("Marketplace coming soon!");
+}
+</script>
+
+</body>
+</html>
